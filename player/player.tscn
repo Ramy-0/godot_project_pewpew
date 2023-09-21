@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cel4hwrlvqd01"]
+
+[ext_resource type="Script" path="res://player/Player.gd" id="1_ntawe"]
+[ext_resource type="PackedScene" uid="uid://cibodsyxgcjne" path="res://weapons/weapon_smg_1.tscn" id="2_h17sn"]
+[ext_resource type="PackedScene" uid="uid://4kp06gulpbvi" path="res://menus/debug_menu.tscn" id="2_rvy3w"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rbcku"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mgskh"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_ntawe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+layers = 4
+mesh = SubResource("CapsuleMesh_rbcku")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_mgskh")
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+cull_mask = 1048573
+fov = 50.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Neck/Camera3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SubViewport" type="SubViewport" parent="Neck/Camera3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 991)
+render_target_update_mode = 4
+
+[node name="HandCamera3D" type="Camera3D" parent="Neck/Camera3D/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+cull_mask = 1047554
+fov = 50.0
+
+[node name="Hand" type="Node3D" parent="Neck"]
+
+[node name="Weapon_smg_1" parent="Neck/Hand" instance=ExtResource("2_h17sn")]
+
+[node name="Debug_menu" parent="." instance=ExtResource("2_rvy3w")]
+active = true

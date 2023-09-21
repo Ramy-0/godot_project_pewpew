@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bweleinnfbb8j"]
+
+[ext_resource type="PackedScene" uid="uid://c8rq4vmc2bk32" path="res://mesh/anim_test.gltf" id="1_svdlt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_141ai"]
+size = Vector3(1, 1.5, 1)
+
+[node name="Test_Body" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_141ai")
+
+[node name="anim_test" parent="." instance=ExtResource("1_svdlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)

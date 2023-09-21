@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://4kp06gulpbvi"]
+
+[ext_resource type="Script" path="res://menus/debug_menu.gd" id="1_p6f5b"]
+
+[node name="Debug_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_p6f5b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 165.0
+offset_bottom = 364.0
+
+[node name="Windowsize" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "windowsize"
+
+[node name="FPS" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "FPS"
+
+[node name="VelocityVector" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -262.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 155.0
+grow_horizontal = 0
+scroll_following = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_right = 113.0
+offset_bottom = 148.0
+grow_horizontal = 2
+
+[node name="BulletsCheckBox" type="CheckBox" parent="GridContainer"]
+layout_mode = 2
+text = "bullets debug"
+
+[node name="AICheckBox" type="CheckBox" parent="GridContainer"]
+layout_mode = 2
+text = "AI debug"

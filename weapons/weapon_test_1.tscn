@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgb664csnmgi4"]
+
+[ext_resource type="Script" path="res://weapons/weapon_test_1.gd" id="1_6m3ag"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ornl"]
+size = Vector3(0.5, 0.5, 1)
+
+[node name="Weapon_test_1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+script = ExtResource("1_6m3ag")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -1.5)
+layers = 2
+mesh = SubResource("BoxMesh_4ornl")

@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://cibodsyxgcjne"]
+
+[ext_resource type="Script" path="res://weapons/weapon_smg_1.gd" id="1_8l6ov"]
+[ext_resource type="PackedScene" uid="uid://clqg3wktc21ws" path="res://mesh/scenes/smg_1.tscn" id="1_58q5e"]
+
+[node name="Weapon_smg_1" type="Node3D" groups=["weapon"]]
+script = ExtResource("1_8l6ov")
+
+[node name="smg_1" parent="." instance=ExtResource("1_58q5e")]
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.25, -0.5, -1)
+
+[node name="Muzzle" type="Node3D" parent="smg_1"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, -8.75, 1.75, 2.38419e-07)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1)
+collision_mask = 5
+collide_with_areas = true
+debug_shape_thickness = 3
+
+[node name="RPMTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CrossHair" type="ColorRect" parent="HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -7.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="AmmoCount" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[connection signal="timeout" from="RPMTimer" to="." method="_on_rpm_timer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

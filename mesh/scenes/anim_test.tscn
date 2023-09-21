@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcekymndrl74p"]
+
+[ext_resource type="PackedScene" uid="uid://c8rq4vmc2bk32" path="res://mesh/anim_test.gltf" id="1_oixi0"]
+
+[node name="anim_test" instance=ExtResource("1_oixi0")]
+
+[node name="tube" parent="Node2/bone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33374, 0, 0)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "animation_model_new"

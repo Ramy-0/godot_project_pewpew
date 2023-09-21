@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://lab0n6vj8y7a"]
+
+[ext_resource type="PackedScene" uid="uid://c2tr60xwai13c" path="res://maps/geometry/simple_box_1.tscn" id="1_5kou3"]
+[ext_resource type="PackedScene" uid="uid://cel4hwrlvqd01" path="res://player/player.tscn" id="1_mpiws"]
+[ext_resource type="PackedScene" uid="uid://dme7hfwmwb5xn" path="res://misc/test_dummie.tscn" id="2_xvoci"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jduj8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_psdj4"]
+sky_material = SubResource("ProceduralSkyMaterial_jduj8")
+
+[sub_resource type="Environment" id="Environment_kvgtl"]
+background_mode = 2
+sky = SubResource("Sky_psdj4")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vkf8e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cabct"]
+albedo_color = Color(0.345098, 0.345098, 0.345098, 1)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d6cdu"]
+material = SubResource("StandardMaterial3D_cabct")
+size = Vector2(200, 200)
+
+[node name="Map_1" type="Node3D" groups=["world"]]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kvgtl")
+
+[node name="GridMap" type="GridMap" parent="."]
+
+[node name="Bedrock" type="StaticBody3D" parent="." groups=["geometry"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bedrock"]
+shape = SubResource("WorldBoundaryShape3D_vkf8e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bedrock"]
+mesh = SubResource("PlaneMesh_d6cdu")
+
+[node name="MapGeometry" type="Node3D" parent="Bedrock" groups=["geometry"]]
+
+[node name="Simple_box_1" parent="Bedrock/MapGeometry" instance=ExtResource("1_5kou3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Simple_box_2" parent="Bedrock/MapGeometry" instance=ExtResource("1_5kou3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="Simple_box_3" parent="Bedrock/MapGeometry" instance=ExtResource("1_5kou3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="Simple_box_4" parent="Bedrock/MapGeometry" instance=ExtResource("1_5kou3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 2)
+
+[node name="TestDummie" parent="Bedrock" instance=ExtResource("2_xvoci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
+
+[node name="Player" parent="." instance=ExtResource("1_mpiws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

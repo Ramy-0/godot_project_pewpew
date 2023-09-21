@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dme7hfwmwb5xn"]
+
+[ext_resource type="Script" path="res://misc/test_dummie.gd" id="1_whbsg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a07il"]
+albedo_color = Color(0.713726, 0.0745098, 0.298039, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jomtp"]
+material = SubResource("StandardMaterial3D_a07il")
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t0c53"]
+size = Vector3(1, 2, 1)
+
+[node name="TestDummie" type="CharacterBody3D" groups=["enemy"]]
+script = ExtResource("1_whbsg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_jomtp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_t0c53")

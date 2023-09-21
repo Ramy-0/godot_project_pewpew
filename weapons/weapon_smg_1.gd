@@ -6,7 +6,7 @@ var animation = "idel"
 var readytoshoot = false
 
 #weapons stats
-@export var mag_size = 30
+@export var mag_size = 15
 var mag = mag_size
 @export var reserve = 90
 @export var rpm = 300.0

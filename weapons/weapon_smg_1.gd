@@ -9,8 +9,8 @@ var readytoshoot = false
 @export var mag_size = 30
 var mag = mag_size
 @export var reserve = 90
-@export var rpm = 300.0
-@export var dmg = 15
+@export var rpm = 600.0
+@export var dmg = 8
 @export var range = 20
 @export var reload_time = 5.0
 

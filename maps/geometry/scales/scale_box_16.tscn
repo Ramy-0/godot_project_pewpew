@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk7rt5oyl4om1"]
+
+[ext_resource type="PackedScene" uid="uid://dig2wrqih05q6" path="res://mesh/scenes/scale_box_16_bit.tscn" id="1_tr2rc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vmf8"]
+
+[node name="scale_box_16" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_5vmf8")
+
+[node name="scale_box_16bit" parent="." instance=ExtResource("1_tr2rc")]

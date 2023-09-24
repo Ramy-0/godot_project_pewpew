@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://lab0n6vj8y7a"]
+[gd_scene load_steps=12 format=3 uid="uid://lab0n6vj8y7a"]
 
 [ext_resource type="PackedScene" uid="uid://c2tr60xwai13c" path="res://maps/geometry/simple_box_1.tscn" id="1_5kou3"]
 [ext_resource type="PackedScene" uid="uid://cel4hwrlvqd01" path="res://player/player.tscn" id="1_mpiws"]
+[ext_resource type="PackedScene" uid="uid://cx0uyt8fce51v" path="res://maps/geometry/scales/scale_box_32.tscn" id="2_l7bsu"]
 [ext_resource type="PackedScene" uid="uid://dme7hfwmwb5xn" path="res://misc/test_dummie.tscn" id="2_xvoci"]
+[ext_resource type="PackedScene" uid="uid://bk7rt5oyl4om1" path="res://maps/geometry/scales/scale_box_16.tscn" id="3_eyf5u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jduj8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -60,6 +62,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 
 [node name="Simple_box_4" parent="Bedrock/MapGeometry" instance=ExtResource("1_5kou3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 2)
+
+[node name="scale_box_16" parent="Bedrock/MapGeometry" instance=ExtResource("3_eyf5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 2.5)
+
+[node name="scale_box_32" parent="Bedrock/MapGeometry" instance=ExtResource("2_l7bsu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="TestDummie" parent="Bedrock" instance=ExtResource("2_xvoci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)

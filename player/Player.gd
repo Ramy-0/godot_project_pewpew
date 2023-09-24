@@ -50,13 +50,14 @@ func _process(delta):
 		Functions.print2db("mouse mode : " + str(Input.get_mouse_mode()))
 		
 	#send animation info to weapons (hand)
-	var wep_animation_state = "idel"
+	var hand_animation_state = "idel"
 	if velocity != Vector3.ZERO:
-		wep_animation_state = "walking"
+		hand_animation_state = "walking"
 	var weapons = hand.get_children()
 	for i in weapons:
 		if i.is_in_group("weapon"):
-			i.player_state = wep_animation_state
+			
+			i.player_state = hand_animation_state
 #			Functions.print2db(anim)
 
 func _unhandled_input(event):

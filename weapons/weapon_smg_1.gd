@@ -13,6 +13,8 @@ var mag = mag_size
 @export var dmg = 15
 @export var range = 20
 @export var reload_time = 5.0
+@export var inaccuracy = 5.0
+@export var instability = 2.0
 
 #debug duh
 @export var debug = false
@@ -31,6 +33,7 @@ func _ready():
 	raycast.target_position.z = - range
 	readytoshoot = true
 	
+	randomize()
 
 func _process(delta):
 	#decide what animation to play
@@ -56,16 +59,25 @@ func _unhandled_input(event):
 func shoot():
 #	Functions.print2db("fire")
 	if mag > 0 and readytoshoot:
+		#inaccuracy bit
+		var spread = randf_range(0.0, deg_to_rad(inaccuracy))
+		raycast.rotate_y(spread)
+		raycast.rotate_z(randf_range(0.0, 2*PI))
+		
 		#shoot the bullet
 		if raycast.is_colliding():
 			if raycast.get_collider().is_in_group("enemy"):
 				if raycast.get_collider().has_method("hit"):
 					raycast.get_collider().hit(dmg)
 			
+		
 			#bullet trail
 			bullet_trail(muzzle.global_position, raycast.get_collision_point())
 		else:
 			bullet_trail(muzzle.global_position, to_global(raycast.target_position))
+		
+		#instability bit
+		get_parent().get_parent().rotate_x(deg_to_rad(instability))
 		
 		#reduce 1 bullet from the mag
 		mag -= 1
@@ -103,6 +115,10 @@ func bullet_trail(pos1, pos2):
 
 func _on_rpm_timer_timeout():
 	readytoshoot = true
+	
+	#reset weapon spread
+	raycast.rotation = Vector3.ZERO
+	
 	if Input.is_action_pressed("mouse_l"):
 		shoot()
 

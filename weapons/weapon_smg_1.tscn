@@ -13,6 +13,7 @@ transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 
 transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, -8.75, 1.75, 2.38419e-07)
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+rotation_order = 1
 target_position = Vector3(0, 0, -1)
 collision_mask = 5
 collide_with_areas = true

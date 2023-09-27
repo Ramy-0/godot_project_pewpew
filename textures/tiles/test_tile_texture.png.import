@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs5wln6nhfpp0"
-path="res://.godot/imported/TINYLIGHTS.png-469d1ea218d1126577a4e42f07bc0038.ctex"
+uid="uid://ceokuu6ruei5u"
+path="res://.godot/imported/test_tile_texture.png-ea08126697c3d766335c07827aea3c53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/PixelTexturePack/Textures/Tech/TINYLIGHTS.png"
-dest_files=["res://.godot/imported/TINYLIGHTS.png-469d1ea218d1126577a4e42f07bc0038.ctex"]
+source_file="res://textures/tiles/test_tile_texture.png"
+dest_files=["res://.godot/imported/test_tile_texture.png-ea08126697c3d766335c07827aea3c53.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

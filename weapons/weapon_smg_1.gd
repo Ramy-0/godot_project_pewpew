@@ -22,11 +22,11 @@ var bullettracerDB = load("res://weapons/misc/bullet_tracer_debug.tscn")
 var hitmarkersDB = load("res://weapons/misc/hit_marker_debug.tscn")
 
 
-@onready var mesh = $smg_1
+@onready var mesh = $smg_1_mesh
 @onready var rpmtimer = $RPMTimer
 @onready var reloadtimer = $ReloadTimer
 @onready var raycast = $RayCast3D
-@onready var muzzle = $smg_1/Muzzle
+@onready var muzzle = $smg_1_mesh/Muzzle
 
 func _ready():
 	rpmtimer.wait_time = 1/rpm*60
@@ -53,7 +53,7 @@ func _process(delta):
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("mouse_l"):
 		shoot()
-	if Input.is_action_just_pressed("r_key"):
+	if Input.is_action_just_pressed("r_key") and mag < mag_size and reserve > 0:
 		reload_gun()
 
 func shoot():

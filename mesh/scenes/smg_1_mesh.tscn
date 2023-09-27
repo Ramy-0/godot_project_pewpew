@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://clqg3wktc21ws"]
 
-[ext_resource type="Script" path="res://mesh/scenes/smg_1.gd" id="1_33c0x"]
-[ext_resource type="Texture2D" uid="uid://d4dd24vtxpeve" path="res://mesh/smg_1_0.png" id="1_72eo6"]
+[ext_resource type="Script" path="res://mesh/scenes/smg_1_mesh.gd" id="1_ysw2p"]
+[ext_resource type="Texture2D" uid="uid://d4dd24vtxpeve" path="res://mesh/smg_1_0.png" id="2_62jkg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x83pr"]
 resource_name = "material_0"
@@ -10,7 +10,7 @@ alpha_scissor_threshold = 0.05
 alpha_antialiasing_mode = 0
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_72eo6")
+albedo_texture = ExtResource("2_62jkg")
 texture_filter = 0
 texture_repeat = false
 
@@ -494,8 +494,8 @@ _data = {
 "walking": SubResource("Animation_fcvps")
 }
 
-[node name="smg_1" type="Node3D"]
-script = ExtResource("1_33c0x")
+[node name="smg_1_mesh" type="Node3D"]
+script = ExtResource("1_ysw2p")
 
 [node name="All" type="Node3D" parent="."]
 

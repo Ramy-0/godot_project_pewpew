@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cel4hwrlvqd01"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_ntawe"]
-[ext_resource type="PackedScene" uid="uid://cibodsyxgcjne" path="res://weapons/weapon_smg_1.tscn" id="2_h17sn"]
+[ext_resource type="PackedScene" uid="uid://dp1i1al63gcb2" path="res://weapons/weapon_shotgun_1.tscn" id="2_0ad44"]
 [ext_resource type="PackedScene" uid="uid://4kp06gulpbvi" path="res://menus/debug_menu.tscn" id="2_rvy3w"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rbcku"]
@@ -51,7 +51,7 @@ fov = 50.0
 
 [node name="Hand" type="Node3D" parent="Neck"]
 
-[node name="Weapon_smg_1" parent="Neck/Hand" instance=ExtResource("2_h17sn")]
+[node name="Weapon_shotgun_1" parent="Neck/Hand" instance=ExtResource("2_0ad44")]
 
 [node name="Debug_menu" parent="." instance=ExtResource("2_rvy3w")]
 active = true

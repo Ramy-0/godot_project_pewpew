@@ -18,3 +18,8 @@ func get_fst_parent_in(child, group):
 		if parent == null:
 			break
 	return parent
+
+#make debug bullet trails and hitscans
+func db_bullettrail(cam, rayc):
+	var pos1 = cam.global_position
+	var pos2 = rayc.get_collision_point()

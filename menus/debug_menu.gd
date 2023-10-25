@@ -7,6 +7,8 @@ func _ready():
 		show()
 	else:
 		hide()
+	
+	Functions.pass_bd_line.connect(print2screen)
 
 
 func _process(delta):
@@ -14,11 +16,11 @@ func _process(delta):
 	$VBoxContainer/FPS.text = "FPS : " + str(Engine.get_frames_per_second())
 	$VBoxContainer/VelocityVector.text = "velocity : " + str(get_parent().velocity)
 	
-	Functions.pass_bd_line.connect(print2screen)
+	
 	
 func _unhandled_input(event):
 	#show/hide the menu
-	if Input.is_action_just_pressed("tilde"):
+	if Input.is_action_just_pressed("tidle"):
 		active = !active
 		
 		if active:
